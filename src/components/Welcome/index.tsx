@@ -1,7 +1,8 @@
 import { motion, useScroll, useTransform, Variants } from 'motion/react'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 import { Suspense, useState } from 'react'
 import Image from 'next/image'
+import Galaxy from '@/components/Galaxy'
 import styles from './styles.module.css'
 
 export default function Index() {
@@ -56,6 +57,21 @@ export default function Index() {
     <Suspense fallback={<div>...</div>}>
       <motion.div className={styles['main-content']} {...anim(loadMainContent)}>
         <div className={styles['first-section-content']}>
+          <div className={styles['galaxy-background']}>
+            <Galaxy
+              starSpeed={0.6}
+              density={0.6}
+              hueShift={230}
+              speed={1.9}
+              glowIntensity={0.3}
+              saturation={0.35}
+              mouseRepulsion={true}
+              repulsionStrength={1}
+              twinkleIntensity={0.45}
+              rotationSpeed={0.1}
+              transparent
+            />
+          </div>
           <div className={`${styles['welcoming-section']}`}>
             <p className="font-libre italic text-4xl md:text-5xl">
               {isClient ? t('welcome_hi') : '...'}
@@ -78,7 +94,7 @@ export default function Index() {
           {...anim(astronautVariants)}
         >
           <Image
-            src="/images/free_astronaut.png"
+            src="/images/free_astronaut.webp"
             alt="free astronaut"
             priority
             width={208}

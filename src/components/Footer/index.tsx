@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles.module.css'
 import navItems from '@/constants/routes'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from '@/context/I18nContext'
 import { socials } from '@/constants/socials'
 import { useTransition } from '@/context/TransitionContext'
 
@@ -151,7 +151,7 @@ const Section2 = () => {
       </h2>
       <div className="flex flex-col gap-1">
         <p className="text-[0.9rem]">{t('version')}</p>
-        <p className="text-black-secondary font-josefin text-2xl">Folio 2025</p>
+        <p className="text-black-secondary font-josefin text-2xl">Folio 2026</p>
       </div>
     </div>
   )
